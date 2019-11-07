@@ -1,12 +1,11 @@
 $breakpoint1: 480px;
-$breakpoint2: 768px;
-$breakpoint3: 1000px;
+$breakpoint2: 768px;  ;
 
 $color-promo: rgba(178,34,34,1);
 $color-white: rgba(255,255,255,1);
-$color-black: rgba(0,0,0,1);
 $color-bandeau: rgba(255,255,255,0.5);
 $color-text: rgba(5,68,90,1);
+$color-black: darken($color-text, 100);
 
 @font-face {
     font-family: "Bermina Sans";
@@ -29,10 +28,6 @@ $color-text: rgba(5,68,90,1);
     color: $color-text;
 }
 
-.svg {
-    display: none;
-}
-
 .small {
     font-size: 0.5em;
 }
@@ -44,7 +39,7 @@ $color-text: rgba(5,68,90,1);
 }
 
 header {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/background.jpg?1");
     background-position: top center;
     background-size: cover;
     height: 500px;
@@ -73,16 +68,19 @@ header {
         }
     }
     .bandeau {
+        display: flex;
+        flex-direction: column;
         background-color: $color-bandeau;
         width: 100%;
         margin-bottom: 15px;
         p  {
             padding-left: 15px;
+            padding-top: 0;
             margin-bottom: 0;
             color: $color-white;
             small {
                 color: $color-white;
-                font-size: 0.5em;
+                font-size: 0.65em;
             }
         }
     }
@@ -100,7 +98,7 @@ header {
         border-width: 1px;
         background-color: $color-white;
         border-radius: 5px;
-        border-color: $color-text;
+        border-color: $color-black;
         font-size: 1.5em;
         &:hover {
             background-color: $color-text;
@@ -115,6 +113,7 @@ header {
     text-align: center;
     h1 {
         font-size: 2.7em;
+        margin-bottom: 40px;
     }
 }
 
@@ -123,6 +122,7 @@ header {
     justify-content: flex-start;
     p  {
         font-family: "GothamHTF-Book";
+        letter-spacing: 5px;
     }
 }
 
@@ -132,10 +132,10 @@ header {
     justify-content: center;
     flex-wrap: wrap;
 
-    div {
+    > div {
         padding: 0 5px;
         img {
-            width: 300px;
+            width: 100%;
         }
         p {
             text-align: center;
@@ -145,31 +145,37 @@ header {
     }
 }
 
-.move {
-    order: 1;
-}
+@media screen and (min-width: $breakpoint1) {
+    .move {
+        order: -1;
+    }
 
+    .liste-img div {
+        padding: 0 50px;
+        width: 50%;
+    }
+}
 
 @media screen and (min-width: $breakpoint2) {
-    .imgs {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media screen and (min-width: $breakpoint3) {
     header {
-        height: 100vh;
+        height: 81vh;
+        .bandeau {
+            display: flex;
+            flex-direction: row;
+            p {
+                font-size: 1.5em;
+            }
+        }
     }
     .inner {
-        width: ($breakpoint3);
+        width: ($breakpoint2);
     }
     .titre {
         justify-content: flex-end;
     }
-    .move {
-        order: -1;
+
+    .liste-img > div {
+        padding: 0 50px;
+        width: 33.3%;
     }
 }

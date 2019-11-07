@@ -354,10 +354,6 @@ template {
   color: #05445a;
 }
 
-.svg {
-  display: none;
-}
-
 .small {
   font-size: 0.5em;
 }
@@ -369,7 +365,7 @@ template {
 }
 
 header {
-  background-image: url("../images/background.jpg");
+  background-image: url("../images/background.jpg?1");
   background-position: top center;
   background-size: cover;
   height: 500px;
@@ -406,6 +402,10 @@ header .promo p small {
 }
 
 header .bandeau {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
   background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   margin-bottom: 15px;
@@ -413,13 +413,14 @@ header .bandeau {
 
 header .bandeau p {
   padding-left: 15px;
+  padding-top: 0;
   margin-bottom: 0;
   color: white;
 }
 
 header .bandeau p small {
   color: white;
-  font-size: 0.5em;
+  font-size: 0.65em;
 }
 
 .logo-button {
@@ -439,7 +440,7 @@ header .bandeau p small {
   border-width: 1px;
   background-color: white;
   border-radius: 5px;
-  border-color: #05445a;
+  border-color: black;
   font-size: 1.5em;
 }
 
@@ -458,6 +459,7 @@ header .bandeau p small {
 
 .contenu h1 {
   font-size: 2.7em;
+  margin-bottom: 40px;
 }
 
 .titre {
@@ -469,6 +471,7 @@ header .bandeau p small {
 
 .titre p {
   font-family: "GothamHTF-Book";
+  letter-spacing: 5px;
 }
 
 .liste-img {
@@ -482,51 +485,54 @@ header .bandeau p small {
       flex-wrap: wrap;
 }
 
-.liste-img div {
+.liste-img > div {
   padding: 0 5px;
 }
 
-.liste-img div img {
-  width: 300px;
+.liste-img > div img {
+  width: 100%;
 }
 
-.liste-img div p {
+.liste-img > div p {
   text-align: center;
   padding-top: 10px;
   font-family: "GothamHTF-Book";
 }
 
-.move {
-  -ms-flex-order: 1;
-      order: 1;
+@media screen and (min-width: 480px) {
+  .move {
+    -ms-flex-order: -1;
+        order: -1;
+  }
+  .liste-img div {
+    padding: 0 50px;
+    width: 50%;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .imgs {
-    width: 100%;
+  header {
+    height: 81vh;
+  }
+  header .bandeau {
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-direction: row;
         flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: center;
-        justify-content: center;
   }
-}
-
-@media screen and (min-width: 1000px) {
-  header {
-    height: 100vh;
+  header .bandeau p {
+    font-size: 1.5em;
   }
   .inner {
-    width: 1000px;
+    width: 768px;
   }
   .titre {
     -ms-flex-pack: end;
         justify-content: flex-end;
   }
-  .move {
-    -ms-flex-order: -1;
-        order: -1;
+  .liste-img > div {
+    padding: 0 50px;
+    width: 33.3%;
   }
 }
 
