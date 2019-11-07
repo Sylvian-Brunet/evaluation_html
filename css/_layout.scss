@@ -1,0 +1,114 @@
+$breakpoint1: 480px;
+$breakpoint2: 768px;
+$breakpoint3: 1000px;
+
+$color-promo: rgba(178,34,34,1);
+$color-white: rgba(255,255,255,1);
+$color-black: rgba(0,0,0,1);
+$color-bandeau: rgba(255,255,255,0.5);
+
+@font-face {
+    font-family: "Bermina Sans";
+    src: url("../fonts/BerninaSans-Web-CondensedBold.woff2") format("woff2");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Bermina Sans";
+}
+
+.svg {
+    display: none;
+}
+
+.small {
+    font-size: 0.5em;
+}
+
+.inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-image: url("../images/background.jpg");
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    .promo {
+        position: absolute;
+        border-radius: 5px;
+        background-color: $color-promo;
+        transform: rotate(30deg);
+        right: 50px;
+        top: 50px;
+        color: $color-white;
+
+        p {
+            padding : 5px;
+        }
+    }
+    .bandeau {
+        background-color: $color-bandeau;
+        width: 100%;
+        margin-bottom: 15px;
+        p  {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.logo-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    button  {
+        height: 35px;
+        padding: 5px;
+        background-color: $color-white;
+        border-radius: 5px;
+        border-color: $color-black;
+    }
+}
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.imgs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+imgs:nth-child(1) {order: 3;}
+imgs:nth-child(2) {
+    order: 1;
+}
+imgs:nth-child(3) {
+    order: 2;
+}
+
+@media screen and (min-width: $breakpoint1) {
+    .inner {
+        width: $breakpoint1;
+    }
+}
+
+@media screen and (min-width: $breakpoint2) {
+    .inner {
+        width: $breakpoint2;
+    }
+}
+
+@media screen and (min-width: $breakpoint3) {
+    .inner {
+        width: $breakpoint3;
+    }
+}
