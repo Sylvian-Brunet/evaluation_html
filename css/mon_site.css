@@ -335,13 +335,23 @@ template {
 
 @font-face {
   font-family: "Bermina Sans";
+  font-style: normal;
+  font-weight: normal;
   src: url("../fonts/BerninaSans-Web-CondensedBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'GothamHTF-Book';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/GothamHTF-Book.woff") format("woff");
 }
 
 * {
   padding: 0;
   margin: 0;
   font-family: "Bermina Sans";
+  color: #05445a;
 }
 
 .svg {
@@ -355,10 +365,13 @@ template {
 .inner {
   width: 100%;
   margin: 0 auto;
+  padding: 5px;
 }
 
 header {
   background-image: url("../images/background.jpg");
+  background-position: top center;
+  background-size: cover;
   height: 500px;
   display: -ms-flexbox;
   display: flex;
@@ -372,15 +385,24 @@ header .promo {
   position: absolute;
   border-radius: 5px;
   background-color: firebrick;
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
   right: 50px;
   top: 50px;
   color: white;
 }
 
 header .promo p {
-  padding: 5px;
+  padding: 5px 10px;
+  margin-bottom: 0;
+  font-size: 1.2em;
+  line-height: 22px;
+  color: white;
+}
+
+header .promo p small {
+  color: white;
+  font-size: 0.5em;
 }
 
 header .bandeau {
@@ -390,10 +412,18 @@ header .bandeau {
 }
 
 header .bandeau p {
+  padding-left: 15px;
   margin-bottom: 0;
+  color: white;
+}
+
+header .bandeau p small {
+  color: white;
+  font-size: 0.5em;
 }
 
 .logo-button {
+  margin: 10px 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -405,11 +435,17 @@ header .bandeau p {
 }
 
 .logo-button button {
-  height: 35px;
-  padding: 5px;
+  padding: 0 2px;
+  border-width: 1px;
   background-color: white;
   border-radius: 5px;
-  border-color: black;
+  border-color: #05445a;
+  font-size: 1.5em;
+}
+
+.logo-button button:hover {
+  background-color: #05445a;
+  color: white;
 }
 
 .contenu {
@@ -420,44 +456,77 @@ header .bandeau p {
   text-align: center;
 }
 
-.imgs {
+.contenu h1 {
+  font-size: 2.7em;
+}
+
+.titre {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+}
+
+.titre p {
+  font-family: "GothamHTF-Book";
+}
+
+.liste-img {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.liste-img div {
+  padding: 0 5px;
+}
+
+.liste-img div img {
+  width: 300px;
+}
+
+.liste-img div p {
   text-align: center;
+  padding-top: 10px;
+  font-family: "GothamHTF-Book";
 }
 
-imgs:nth-child(1) {
-  -ms-flex-order: 3;
-      order: 3;
-}
-
-imgs:nth-child(2) {
+.move {
   -ms-flex-order: 1;
       order: 1;
 }
 
-imgs:nth-child(3) {
-  -ms-flex-order: 2;
-      order: 2;
-}
-
-@media screen and (min-width: 480px) {
-  .inner {
-    width: 480px;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .inner {
-    width: 768px;
+  .imgs {
+    width: 100%;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: center;
+        justify-content: center;
   }
 }
 
 @media screen and (min-width: 1000px) {
+  header {
+    height: 100vh;
+  }
   .inner {
     width: 1000px;
+  }
+  .titre {
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+  }
+  .move {
+    -ms-flex-order: -1;
+        order: -1;
   }
 }
 
